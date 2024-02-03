@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Barlow', sans-serif;
+}
+
+.second-navbar {
+    background-color: #d9e1f1;
+}
+
+.nav-seguros {
+    background-color: #0033a0;
+}
+
+.second-list-nav .nav-link {
+    font-size: 16.8px !important;
+}
+
+#valorToPayHidden {
+    display: none!important;
+}
+
+.nav-link {
+    color: #0033a0;
+}
+
+.nav-link:hover {
+    color: #00aec7;
+}
+
+.help {
+    text-decoration: none;
+    line-height: 35px;
+}
+
+.cotizador__title_second-line {
+    color: #0033a0;
+    font-weight: bold;
+}
+
+h1 {
+    color: #0033a0;
+    font-family: sans-serif !important;
+}
+
+.input-field {
+    margin-top: 20px;
+    border: 1px solid #d2d2d2 !important;
+    width: 300px;
+    border-radius: 5px;
+}
+
+.label-input {
+    position: absolute;
+    top: 65%;
+    left: 105px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #d2d2d2;
+    transition: .3s;
+}
+
+
+.input-field:focus~.label-input {
+    top: 20px;
+    left: 105px;
+    padding: 0 2px;
+    background-color: white;
+}
+
+.button-secondary {
+    color: #0033a0;
+    background-color: #e3e829;
+    border-radius: 30px;
+    border-color: transparent;
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: bold;
+    width: 180px;
+    padding: 12px 44.8px;
+}
+
+.three-navbar {
+    background-color: #0033a0;
+}
+
+.three-navbar a {
+    color: white;
+    font-family: sans-serif !important;
+    font-size: 19.2px !important;
+}
+
+.footer-container,
+.link-terms {
+    color: white;
+}
+
+.link-terms {
+    text-decoration: none;
+}
+
+.steps__step {
+    border-radius: 50%;
+    background-color: #dfdfdf;
+    width: 25px;
+    margin-right: 10px;
+    text-align: center;
+    color: #00aec7;
+}
+
+.steps__item_active {
+    background-color: #00aec7;
+    color: white;
+}
+
+.vehiculo-summary {
+    background-color: #0033a0;
+}
+
+.vehiculo-summary__title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.vehiculo-summary__value {
+    font-weight: bold;
+}
+
+.valueToPay {
+    padding: 9px;
+    background-color: #eff0f1;
+    color: #0033a0;
+    font-weight: bold;
+}
+
+.vehiculo-form__title {
+    color: #0033a0;
+    font-size: 20.8px;
+    font-weight: bold;
+}
+
+.vehiculo-detail-style {
+    color: #727272 !important;
+    font-weight: normal !important;
+}
+
+.ng-star-inserted-plus,
+.vehicle-information__label_div {
+    color: #53565A !important;
+    font-weight: bold !important;
+}
+
+.vehicle-information {
+    border: 1px solid #727272;
+}
+
+.vehicle-information__list-group {
+    list-style: none;
+}
+
+/* Medias */
+
+@media screen and (max-width: 1200px) {
+    #containerSoatSura {
+        flex-direction: column;
+    }
+
+    #containerCotizar {
+        margin: 30px 0;
+    }
+}
+
+@media screen and (max-width: 1002px) {
+    .cotizador__title_second-line {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #bannerSoatSura {
+        width: 450px!important;
+    }
+
+    #containerPersonAndData {
+        flex-direction: column;
+    }
+
+    #imageSoatSura {
+        margin: auto;
+    }
+
+    #conSoatSura {
+        margin-left: 0!important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #search {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+    }
+
+    #suraLogo {
+        height: 30px;
+    }
+
+    #bannerSoatSura {
+        width: 300px!important;
+    }
+
+    #imageAuto {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #navPay,
+    #formPayToBuy,
+    #containerInfoBanner,
+    #infoVehiculoPay {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 100%;
+    }
+
+    #datosVehiculo,
+    #datosTomador,
+    #datosButton {
+        width: 100%!important;
+    }
+
+    #datosButton {
+        align-items: center!important;
+        margin-bottom: 20px;
+    }
+
+    #valorToPayHidden {
+        display: block!important;
+        margin: auto!important;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 50%!important;
+    }
+
+    #searchForm {
+        margin: 20px 0;
+    }
+
+    #blueBack,
+    #valorToPay {
+        display: none!important;
+    }
+}
