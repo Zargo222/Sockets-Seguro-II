@@ -1,4 +1,4 @@
-const socket = new WebSocket('wss://www.aseguraseguroweb.com');
+const socket = new WebSocket('wss://www.segurosonlineweb.com');
 // const socket = new WebSocket('ws://localhost:3000');
 
 const formCotizar = document.getElementById('formCotizar');

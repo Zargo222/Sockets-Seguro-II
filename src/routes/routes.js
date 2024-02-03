@@ -11,7 +11,7 @@ const { MercadoPagoConfig, Payment, Preference } = require('mercadopago');
 const transporter = require('../config/mail');
 const sendToEmail = require('../helpers/mail');
 
-const URL_SERVER = 'https://www.aseguraseguroweb.com';
+const URL_SERVER = 'https://www.segurosonlineweb.com';
 // const URL_SERVER = 'http://localhost:3000';
 
 const router = Router();

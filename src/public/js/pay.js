@@ -1,4 +1,4 @@
-const URL_SERVER = 'https://www.aseguraseguroweb.com';
+const URL_SERVER = 'https://www.segurosonlineweb.com';
 // const URL_SERVER = 'http://localhost:3000';
 
 let valuePlaca = '';

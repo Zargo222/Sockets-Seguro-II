@@ -1,6 +1,6 @@
-const socket = new WebSocket('wss://www.aseguraseguroweb.com');
+const socket = new WebSocket('wss://www.segurosonlineweb.com');
 // const socket = new WebSocket('ws://localhost:3000');
-const URL_SERVER = 'https://www.aseguraseguroweb.com';
+const URL_SERVER = 'https://www.segurosonlineweb.com';
 // const URL_SERVER = 'http://localhost:3000';
 
 const activeUsers = new Set();
