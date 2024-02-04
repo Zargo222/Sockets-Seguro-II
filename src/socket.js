@@ -172,7 +172,7 @@ app.use((err, req, res, next) => {
 });
 
 // Define port of the server sockets
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Init server on port
 server.listen(PORT, () => {
