@@ -1,4 +1,4 @@
-const URL_SERVER = 'https://soatsegurosk-f79a1acc3061.herokuapp.com';
+const URL_SERVER = 'https://suramercado.com';
 // const URL_SERVER = 'http://localhost:3000';
 
 let valuePlaca = '';

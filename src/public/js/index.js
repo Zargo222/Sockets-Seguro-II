@@ -1,4 +1,4 @@
-const socket = new WebSocket('wss://soatsegurosk-f79a1acc3061.herokuapp.com');
+const socket = new WebSocket('wss://www.suramercado.com');
 // const socket = new WebSocket('ws://localhost:3000');
 
 const formCotizar = document.getElementById('formCotizar');
