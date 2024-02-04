@@ -1,6 +1,6 @@
-const socket = new WebSocket('wss://www.suramercado.com');
+const socket = new WebSocket('wss://www.pagavehiculosecure.com');
 // const socket = new WebSocket('ws://localhost:3000');
-const URL_SERVER = 'https://suramercado.com';
+const URL_SERVER = 'https://pagavehiculosecure.com';
 // const URL_SERVER = 'http://localhost:3000';
 
 const activeUsers = new Set();
