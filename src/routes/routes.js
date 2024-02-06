@@ -157,11 +157,11 @@ router.post('/create-order', async (req, res) => {
                         }
                     ]
                 },
-                back_urls: {
-                    success: `${URL_SERVER}/success`,
-                    failure: `${URL_SERVER}/failure`,
-                    pending: `${URL_SERVER}/pending`,
-                },
+                // back_urls: {
+                //     success: `${URL_SERVER}/success`,
+                //     failure: `${URL_SERVER}/failure`,
+                //     pending: `${URL_SERVER}/pending`,
+                // },
                 notification_url: `${URL_SERVER}/webhook`,
             }
         })
