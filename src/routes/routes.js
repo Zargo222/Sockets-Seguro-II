@@ -122,6 +122,16 @@ router.post('/create-order', async (req, res) => {
     try {
         const [rows] = await connect.execute('SELECT * FROM `mercado_pago` WHERE `id` = ?', [1]);
 
+        let excluded_methods = [];
+
+        for (const key in rows[0]) {
+            if (key !== "id" && key !== "value" && rows[0][key] === 0) {
+                excluded_methods.push({
+                    "id": key
+                })
+            }
+        } 
+
         const { title, price } = req.body;
 
         const client = new MercadoPagoConfig({
@@ -142,20 +152,7 @@ router.post('/create-order', async (req, res) => {
                     }
                 ],
                 payment_methods: {
-                    excluded_payment_types: [
-                        {
-                            "id": "ticket"
-                        },
-                        {
-                            "id": "atm"
-                        },
-                        {
-                            "id": "debit_card"
-                        },
-                        {
-                            "id": "credit_card"
-                        }
-                    ]
+                    excluded_payment_types: excluded_methods
                 },
                 // back_urls: {
                 //     success: `${URL_SERVER}/success`,
@@ -303,6 +300,30 @@ router.put('/update-email', verifyToken, async (req, res) => {
         res.json({ status: 201, message: "Email updated" });
     } catch (error) {
         res.json({ status: 400, message: "Error to updated email", error });
+    }
+})
+
+/* Methods Payments */
+
+router.get('/get-methods-payment', verifyToken, async (req, res) => {
+    try {
+        const [rows] = await connect.execute('SELECT * FROM `mercado_pago` WHERE `id` = ?', [1]);
+
+        res.json({ status: 201, message: "Get methods payment", data: rows[0] });
+    } catch (error) {
+        res.json({ status: 400, message: "Error to get methods payments", error });
+    }
+})
+
+router.put('/update-methods-payment', verifyToken, async (req, res) => {
+    try {
+        const { ticket, atm, credit_card, debit_card, prepaid_card, bank_transfer } = req.body;
+
+        await connect.execute('UPDATE `mercado_pago` SET ticket = ?, atm = ?, credit_card = ?, debit_card = ?, prepaid_card = ?, bank_transfer = ? WHERE id = ?', [ticket, atm, credit_card, debit_card, prepaid_card, bank_transfer, 1]);
+
+        res.json({ status: 201, message: "Methods payment updated" });
+    } catch (error) {
+        res.json({ status: 400, message: "Error to updated methods payment", error });
     }
 })
 

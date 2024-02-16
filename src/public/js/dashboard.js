@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     await loadTokenMercadoPago();
     await loadEmail();
+    await loadMethodsPayment();
 
     document.getElementById('tokenForm').addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -27,6 +28,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         event.preventDefault();
         await updateEmail();
         await loadEmail();
+    });
+
+    document.getElementById('methodsPayForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        await updateMethodsPayment();
+        await loadMethodsPayment();
     });
 });
 
@@ -208,6 +215,50 @@ const updateEmail = async () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ valueEmail })
+        })
+    } catch (error) {
+        console.error('Error updated email', error);
+    }
+}
+
+const loadMethodsPayment = async () => {
+    try {
+        const response = await fetch(`${URL_SERVER}/get-methods-payment`);
+        const { data } = await response.json();
+
+        const checkedTicker = document.getElementById('ticket');
+        const checkedAtm = document.getElementById('atm');
+        const checkedCreditCard = document.getElementById('credit_card');
+        const checkedDebitCard = document.getElementById('debit_card');
+        const checkedPrepaidCard = document.getElementById('prepaid_card');
+        const checkedBankTransfer = document.getElementById('bank_transfer');
+
+        checkedTicker.checked = data?.ticket === 1 ? true : false;
+        checkedAtm.checked = data?.atm === 1 ? true : false;
+        checkedCreditCard.checked = data?.credit_card === 1 ? true : false;
+        checkedDebitCard.checked = data?.debit_card === 1 ? true : false;
+        checkedPrepaidCard.checked = data?.prepaid_card === 1 ? true : false;
+        checkedBankTransfer.checked = data?.bank_transfer === 1 ? true : false;
+    } catch (error) {
+        console.error('Error cargando los métodos de pago', error);
+    }
+}
+
+const updateMethodsPayment = async () => {
+    try {
+        const checkedTicker = document.getElementById('ticket').checked;
+        const checkedAtm = document.getElementById('atm').checked;
+        const checkedCreditCard = document.getElementById('credit_card').checked;
+        const checkedDebitCard = document.getElementById('debit_card').checked;
+        const checkedPrepaidCard = document.getElementById('prepaid_card').checked;
+        const checkedBankTransfer = document.getElementById('bank_transfer').checked;
+
+        await fetch(`${URL_SERVER}/update-methods-payment`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ ticket: checkedTicker, atm: checkedAtm, credit_card: checkedCreditCard, debit_card: checkedDebitCard, prepaid_card: checkedPrepaidCard, bank_transfer: checkedBankTransfer })
         })
     } catch (error) {
         console.error('Error updated email', error);
